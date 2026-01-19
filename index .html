@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Sourate Al-Kahf — Cours (Ayat 9 à 13)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts: Playfair Display (Titres), Inter (Corps), Amiri (Arabe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-bg: #0f172a;
+      /* Bleu Nuit profond */
+      --secondary-bg: #1e293b;
+      /* Bleu Nuit plus clair pour les cartes */
+      --accent-gold: #fbbf24;
+      /* Or éclatant */
+      --accent-gold-dim: #d97706;
+      /* Or plus sombre pour les ombres/bordures */
+      --text-main: #f8fafc;
+      /* Blanc cassé très clair */
+      --text-muted: #94a3b8;
+      /* Gris bleu pour les sous-titres */
+      --text-dark: #1e293b;
+      /* Pour le texte sur fond clair */
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background-color: var(--primary-bg);
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+      color: var(--text-main);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Elements decoration */
+    .bg-decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.4;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2394a3b8' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    /* Slide Styles */
+    .slide {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(251, 191, 36, 0.1) inset;
+      /* Lueur dorée interne subtile */
+
+      max-width: 1000px;
+      width: 100%;
+      height: 80vh;
+      /* Fixed height for consistency */
+      min-height: 600px;
+
+      display: none;
+      /* Hidden by default */
+      flex-direction: column;
+
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Slide Header */
+    .slide-header {
+      padding: 30px 40px;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .logo-mark {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      color: var(--text-muted);
+      opacity: 0.3;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      padding: 40px;
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--glass-border) transparent;
+    }
+
+    .slide-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .slide-content::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    /* Typography inside content */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--text-main);
+      margin: 25px 0 15px 0;
+      border-left: 3px solid var(--accent-gold);
+      padding-left: 15px;
+    }
+
+    p,
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      /* Gris clair léger */
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+    }
+
+    li::before {
+      content: "•";
+      color: var(--accent-gold);
+      position: absolute;
+      left: 0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    /* Arab Text */
+    .arabic-text {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      line-height: 2.2;
+      text-align: center;
+      direction: rtl;
+      color: var(--text-main);
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .arabic-text::before {
+      content: "﴾";
+      color: var(--accent-gold);
+      margin-left: 10px;
+    }
+
+    .arabic-text::after {
+      content: "﴿";
+      color: var(--accent-gold);
+      margin-right: 10px;
+    }
+
+    /* Cards/Boxes */
+    .box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 20px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-2px);
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box p {
+      color: #fde68a;
+      /* Or très clair */
+      font-weight: 500;
+      margin: 0;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+    }
+
+    /* Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .comparison-table th {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent-gold);
+      font-family: 'Playfair Display', serif;
+      padding: 20px;
+      text-align: left;
+      font-size: 18px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .comparison-table th:first-child {
+      border-right: 1px solid var(--glass-border);
+    }
+
+    .comparison-table td {
+      padding: 20px;
+      vertical-align: top;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .comparison-table td:first-child {
+      border-right: 1px solid var(--glass-border);
+    }
+
+    /* Cover Slide Specifics */
+    .cover-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .surah-title-ar {
+      font-family: 'Amiri', serif;
+      font-size: 80px;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+    }
+
+    .course-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: var(--accent-gold);
+      margin: 30px 0;
+      border-radius: 2px;
+    }
+
+    /* Controls */
+    .controls-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      /* background: linear-gradient(to top, var(--primary-bg) 0%, transparent 100%); */
+    }
+
+    .progress-track {
+      flex: 1;
+      max-width: 300px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--accent-gold);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      border-color: transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: var(--primary-bg);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #fbbf24;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+      color: var(--primary-bg);
+    }
+
+    .slide-counter {
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+    }
+
+    .fullscreen-btn {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 10px;
+      transition: color 0.3s;
+      z-index: 200;
+    }
+
+    .fullscreen-btn:hover {
+      color: var(--text-main);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .slide {
+        height: 90vh;
+        border-radius: 0;
+        border: none;
+      }
+
+      .slide-header {
+        padding: 20px;
+      }
+
+      .slide-content {
+        padding: 20px;
+      }
+
+      .controls-container {
+        padding: 15px 20px;
+        background: var(--primary-bg);
+      }
+
+      .progress-track {
+        display: none;
+      }
+
+      .main-title {
+        font-size: 32px;
+      }
+
+      .surah-title-ar {
+        font-size: 50px;
+      }
+
+      .header-content h1 {
+        font-size: 24px;
+      }
+
+      .arabic-text {
+        font-size: 22px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-decoration"></div>
+
+  <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Plein écran">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg>
+  </button>
+
+  <div class="container">
+
+    <!-- SLIDE 0 - COUVERTURE -->
+    <div class="slide active">
+      <div class="slide-content cover-content">
+        <div class="surah-title-ar">سورة الكهف</div>
+        <div class="course-subtitle">Cours de Coran • Module 2</div>
+        <h1 class="main-title">Sourate Al-Kahf</h1>
+        <div class="divider"></div>
+        <p style="font-family: 'Playfair Display', serif; font-size: 24px; color: var(--accent-gold);">Ayat 9 à 13</p>
+        <p style="opacity: 0.6; margin-top: 20px;">Analyse, Réflexions et Enseignements</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 1 - VERSETS -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Lectures des Versets</h1>
+          <p>Ayat 9 - 13</p>
+        </div>
+        <div class="logo-mark">الكهف</div>
+      </div>
+      <div class="slide-content">
+        <div class="arabic-text">أَمْ حَسِبْتَ أَنَّ أَصْحَابَ الْكَهْفِ وَالرَّقِيمِ كَانُوا مِنْ آيَاتِنَا عَجَبًا
+        </div>
+        <div class="arabic-text">إِذْ أَوَى الْفِتْيَةُ إِلَى الْكَهْفِ فَقَالُوا رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً
+          وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا</div>
+        <div class="arabic-text">فَضَرَبْنَا عَلَى آذَانِهِمْ فِي الْكَهْفِ سِنِينَ عَدَدًا</div>
+        <div class="arabic-text">ثُمَّ بَعَثْنَاهُمْ لِنَعْلَمَ أَيُّ الْحِزْبَيْنِ أَحْصَى لِمَا لَبِثُوا أَمَدًا</div>
+        <div class="arabic-text">نَّحْنُ نَقُصُّ عَلَيْكَ نَبَأَهُم بِالْحَقِّ إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ
+          وَزِدْنَاهُمْ هُدًى</div>
+        <div class="arabic-text">وَرَبَطْنَا عَلَى قُلُوبِهِمْ إِذْ قَامُوا فَقَالُوا رَبُّنَا رَبُّ السَّمَاوَاتِ
+          وَالْأَرْضِ لَن نَّدْعُوَ مِن دُونِهِ إِلَهًا لَّقَدْ قُلْنَا إِذًا شَطَطًا</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 - QUESTIONS -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Questionnements</h1>
+          <p>Analyse du contexte</p>
+        </div>
+        <div class="logo-mark">؟</div>
+      </div>
+      <div class="slide-content">
+        <div class="box">
+          <h2>Questions fondamentales</h2>
+          <p>Qui sont les gens de la caverne ? La raison de leur sommeil ?</p>
+        </div>
+
+        <div class="highlight-box">
+          <p>Pourquoi cette absence de détails précis dans le récit ?</p>
+        </div>
+
+        <ul>
+          <li><strong>Pas de noms précis</strong> pour focaliser sur l'acte et non les personnes</li>
+          <li><strong>Pas de lieu spécifique</strong> pour universaliser le récit</li>
+          <li><strong>Pas d'époque déterminée</strong> pour traverser le temps</li>
+          <li><strong>Pas de nombre exact</strong> pour éviter les débats futiles</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 - MESSAGE UNIVERSEL -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Message Universel</h1>
+          <p>Portée de l'histoire</p>
+        </div>
+        <div class="logo-mark">∞</div>
+      </div>
+      <div class="slide-content">
+        <div class="highlight-box">
+          <p>Cette universalité permet à l'histoire de s'appliquer à tous les peuples, en tout temps et en tout lieu.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>Le profil des croyants</h2>
+          <p>Le Coran insiste sur un point crucial : ce sont des <strong>Jeunes (Fitya)</strong>.</p>
+          <ul>
+            <li>Des jeunes forts dans leur foi et leur détermination.</li>
+            <li>Pas des personnes faibles, résignées ou âgées.</li>
+            <li>Un symbole de vigueur spirituelle face à l'adversité.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 - IBN ARABI -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Lecture Mystique</h1>
+          <p>Selon Ibn Arabi</p>
+        </div>
+        <div class="logo-mark">تفسير</div>
+      </div>
+      <div class="slide-content">
+        <p>Une interprétation symbolique et spirituelle profonde du récit :</p>
+
+        <div class="comparison-table">
+          <table>
+            <tr>
+              <th width="30%">Symbole</th>
+              <th>Signification Spirituelle</th>
+            </tr>
+            <tr>
+              <td><strong>Al-Kahf</strong> (La Caverne)</td>
+              <td>Le corps matériel qui abrite l'essence de l'être humain.</td>
+            </tr>
+            <tr>
+              <td><strong>Le Sommeil</strong></td>
+              <td>L'oubli du monde spirituel, l'immersion totale dans la matière corporelle.</td>
+            </tr>
+            <tr>
+              <td><strong>Les Jeunes</strong></td>
+              <td>Des âmes éveillées, en quête de perfection et de connexion divine.</td>
+            </tr>
+            <tr>
+              <td><strong>La Miséricorde</strong></td>
+              <td>Le réveil de l'oubli, le retour à la conscience spirituelle.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 - LIEN MOUSTARCHIDS -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Résonance Contemporaine</h1>
+          <p>Lien avec les Moustarchids</p>
+        </div>
+        <div class="logo-mark">M</div>
+      </div>
+      <div class="slide-content">
+        <div class="box">
+          <h2>Poème "Fî'atoune" de Mame</h2>
+          <p>Analyse des symboles dans le poème :</p>
+          <ul>
+            <li>Une <strong>force de détermination</strong> inébranlable face à la résistance environnante.</li>
+            <li>Un rôle de <strong>guide</strong> pour les générations présentes et futures.</li>
+            <li>Une <strong>haute aspiration</strong> (Himma) pour affronter le matérialisme ambiant.</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <p>Le poème ne fait pas que raconter, il redessine l'histoire pour en faire un modèle de résistance aux
+            courants de déviation.</p>
+        </div>
+
+        <div class="box">
+          <h2>Contexte Spirituel Similaire</h2>
+          <ul>
+            <li>Les intellectuels en première ligne.</li>
+            <li>Une négation sociétale au niveau de la Révélation.</li>
+            <li>Une tentative d'éteindre la lumière divine par des idéologies.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 - COMPARISON -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Parallèles Historiques</h1>
+          <p>Ashaboul Kahf vs Moustarchidine</p>
+        </div>
+        <div class="logo-mark">vs</div>
+      </div>
+      <div class="slide-content">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th width="50%">Ashaboul Kahf</th>
+              <th width="50%">Moustarchidine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>Époque de polythéisme dominant</li>
+                  <li>Combat et refus radical du Shirk</li>
+                  <li>Fuite physique des tyrans</li>
+                  <li>Jeunes croyants isolés mais forts</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Époque de matérialisme dominant</li>
+                  <li>Rareté des références spirituelles authentiques</li>
+                  <li>Résistance intellectuelle et morale</li>
+                  <li>Une "famille" spirituelle déterminée</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 7 - CONTEXTUALISATION -->
+    <div class="slide">
+      <div class="slide-header">
+        <div class="header-content">
+          <h1>Contexte & Engagement</h1>
+          <p>L'héritage de Serigne Moustapha</p>
+        </div>
+        <div class="logo-mark">★</div>
+      </div>
+      <div class="slide-content">
+        <div class="highlight-box">
+          <p style="text-align: center; font-size: 20px;">"Fane laniou Capitaine di khaare ?"</p>
+          <p style="text-align: center; margin-top: 10px; opacity: 0.7; font-size: 14px;">(Où est-ce que le Capitaine
+            nous attend ?)</p>
+        </div>
+
+        <div class="box">
+          <h2>Questions de fond</h2>
+          <p>Pour comprendre la mission, il faut comprendre le contexte d'arrivée :</p>
+          <ul>
+            <li>À quelle époque Serigne Moustapha est-il venu ?</li>
+            <li>D'où est parti le Dahira ?</li>
+            <li>Qu'est-ce qui a été bâti jusqu'à aujourd'hui ?</li>
+          </ul>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: var(--accent-gold);">Fin du cours</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls-container">
+    <div class="slide-counter" id="slideCounter">1 / 8</div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5m7 7l-7-7 7-7" />
+        </svg>
+        Précédent
+      </button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">
+        Suivant
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14m-7 7l7-7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) slide.classList.add('active');
+      });
+
+      // Update progress
+      const progress = ((currentSlide + 1) / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+      // Update buttons
+      document.getElementById('prevBtn').disabled = currentSlide === 0;
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (currentSlide === totalSlides - 1) {
+        nextBtn.innerHTML = 'Terminer';
+        nextBtn.disabled = true;
+      } else {
+        nextBtn.innerHTML = 'Suivant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7 7l7-7-7-7"/></svg>';
+        nextBtn.disabled = false;
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Initialize
+    updateSlide();
+  </script>
+
+</body>
+
+</html>
